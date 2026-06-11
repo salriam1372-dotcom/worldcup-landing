@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>لیگ پیش‌بینی جام جهانی ۲۰۲۶ | اسپورتلند</title>
+<meta name="description" content="لندینگ سبک و گرافیکی لیگ پیش‌بینی بازی‌های جام جهانی ۲۰۲۶ با ثبت نام شماره موبایل، برنامه بازی‌ها و سیستم امتیازدهی ۵/۲/۰.">
+<style>
+:root {
+  --navy:#071b3a;
+  --navy2:#0e2a58;
+  --red:#df1427;
+  --red2:#ff3148;
+  --green:#0ba35b;
+  --gold:#f7c948;
+  --ink:#15213a;
+  --muted:#6b7280;
+  --soft:#f5f7fb;
+  --card:#ffffff;
+  --line:#e7ebf3;
+  --radius:28px;
+  --shadow:0 18px 50px rgba(7,27,58,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:IRANYekanX,YekanBakh,Vazirmatn,Tahoma,Arial,sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(223,20,39,.10), transparent 28rem),
+    radial-gradient(circle at top left, rgba(11,163,91,.12), transparent 24rem),
+    var(--soft);
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.page{max-width:1260px;margin:auto;padding:16px 14px 86px}
+.topbar{
+  position:sticky;top:0;z-index:30;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  min-height:64px;padding:10px 14px;margin:0 0 18px;
+  border:1px solid rgba(255,255,255,.65);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(14px);
+  border-radius:0 0 24px 24px;
+  box-shadow:0 12px 34px rgba(7,27,58,.08);
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:950;color:var(--navy)}
+.brandMark{
+  width:42px;height:42px;border-radius:15px;
+  display:grid;place-items:center;color:#fff;font-weight:950;
+  background:linear-gradient(135deg,var(--red),#95111e);
+  box-shadow:0 10px 22px rgba(223,20,39,.28);
+}
+.nav{display:flex;gap:10px;align-items:center;overflow:auto;white-space:nowrap}
+.nav a,.nav button{
+  border:0;background:transparent;color:#34405c;font-weight:900;font-size:13px;
+  padding:10px 12px;border-radius:14px;cursor:pointer;
+}
+.nav a:hover,.nav button:hover{background:#f0f3f9}
+.btn{
+  border:0;border-radius:17px;min-height:48px;padding:13px 19px;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:950;cursor:pointer;transition:.2s transform,.2s box-shadow,.2s opacity;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn.red{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 14px 30px rgba(223,20,39,.25)}
+.btn.green{background:linear-gradient(135deg,var(--green),#087747);color:#fff;box-shadow:0 14px 30px rgba(11,163,91,.18)}
+.btn.light{background:#fff;color:var(--navy);border:1px solid #e5e9f2}
+.btn.dark{background:var(--navy);color:#fff}
+.hero{
+  position:relative;overflow:hidden;color:#fff;
+  border-radius:36px;padding:34px;
+  background:
+    radial-gradient(circle at 17% 10%, rgba(247,201,72,.28), transparent 20rem),
+    radial-gradient(circle at 85% 5%, rgba(223,20,39,.45), transparent 21rem),
+    radial-gradient(circle at 82% 92%, rgba(11,163,91,.32), transparent 18rem),
+    linear-gradient(135deg,#06162e,#0d2c60 58%,#07172e);
+  box-shadow:0 28px 70px rgba(7,27,58,.34);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(140deg,rgba(255,255,255,.065) 0 2px,transparent 2px 36px),
+    linear-gradient(90deg,rgba(255,255,255,.04),transparent 45%);
+  pointer-events:none;
+}
+.heroGrid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:9px 14px;font-weight:900;color:#eef4ff;margin-bottom:16px}
+.hero h1{font-size:clamp(34px,5.5vw,74px);line-height:1.08;margin:0 0 18px;letter-spacing:-1px}
+.hero h1 span{display:block;color:#ff4459}
+.hero p{font-size:18px;line-height:2;color:#edf4ff;margin:0 0 22px;max-width:700px}
+.heroActions{display:flex;gap:12px;flex-wrap:wrap}
+.statGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:17px}
+.stat small{display:block;color:#cbd7ee;font-weight:800;margin-bottom:7px}
+.stat strong{display:block;color:#fff;font-size:22px;line-height:1.4}
+.matchHero{
+  background:rgba(3,8,20,.46);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:28px;padding:22px;
+  box-shadow:inset 0 0 36px rgba(0,0,0,.20);
+}
+.matchHero .tag{display:inline-flex;background:var(--red);padding:9px 18px;border-radius:999px;font-weight:950;margin-bottom:18px}
+.versus{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;text-align:center}
+.flagBubble{width:112px;height:112px;margin:auto;background:#fff;border-radius:50%;display:grid;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.28);overflow:hidden}
+.flagBubble img{width:100%;height:100%;object-fit:cover}
+.vs{font-size:34px;font-weight:950;color:#fff}
+.teamName{display:block;font-weight:950;font-size:17px;margin-top:10px}
+.nextMeta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.nextMeta div{background:rgba(255,255,255,.10);border-radius:16px;padding:12px;text-align:center;font-weight:900;color:#ecf4ff}
+.section{margin-top:30px}
+.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:16px}
+.sectionHead h2{font-size:30px;margin:0 0 8px;color:var(--ink)}
+.sectionHead p{margin:0;color:var(--muted);line-height:1.9}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:24px;
+}
+.rulesGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rule{
+  position:relative;overflow:hidden;min-height:160px;
+  border-radius:24px;padding:20px;color:#fff;
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+}
+.rule:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(140deg,rgba(255,255,255,.06) 0 2px,transparent 2px 28px)}
+.rule>*{position:relative}
+.rule b{font-size:40px;display:block;margin-bottom:10px;color:var(--gold)}
+.rule strong{font-size:19px;display:block;margin-bottom:8px}
+.rule span{color:#d9e4f7;line-height:1.8;font-size:13px}
+.joinStrip{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:center;
+  margin-top:18px;
+  background:linear-gradient(135deg,#fff,#fff7f8);
+  border:1px solid #f0d7dc;border-radius:26px;padding:18px;
+}
+.userBadge{display:flex;align-items:center;gap:10px;background:#f3f6fb;border:1px solid #e5eaf3;border-radius:18px;padding:12px 14px;color:#34405c;font-weight:900}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.controls select,.controls input{
+  height:48px;border:1px solid var(--line);border-radius:16px;background:#fff;color:#26324d;
+  padding:0 14px;font-weight:800;outline:none;min-width:170px;
+}
+.scheduleShell{display:grid;grid-template-columns:320px 1fr;gap:16px}
+.sidePanel{position:sticky;top:82px;align-self:start;background:linear-gradient(135deg,var(--navy),#0a2d64);color:#fff;border-radius:26px;padding:20px;overflow:hidden}
+.sidePanel:before{content:"";position:absolute;inset:auto}
+.sidePanel h3{margin:0 0 12px;font-size:23px}
+.sidePanel p{color:#dce8fb;line-height:1.9;margin:0 0 14px;font-size:14px}
+.miniScores{display:grid;grid-template-columns:1fr;gap:10px}
+.miniScores div{display:flex;justify-content:space-between;gap:12px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:12px 14px;font-weight:900}
+.fixtureGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fixture{
+  background:#fff;border:1px solid var(--line);border-radius:24px;padding:16px;
+  box-shadow:0 10px 30px rgba(7,27,58,.08);
+}
+.fixtureTop{display:flex;justify-content:space-between;gap:10px;color:#667085;font-size:12px;font-weight:900;margin-bottom:13px}
+.fixtureTeams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;text-align:center}
+.flag{width:54px;height:54px;border-radius:50%;object-fit:cover;background:#fff;border:2px solid #eef1f7;box-shadow:0 4px 14px rgba(0,0,0,.11);display:block;margin:0 auto 7px}
+.team{font-weight:950;font-size:15px;min-height:40px;display:grid;place-items:center}
+.predictionBox{margin-top:14px;border-top:1px dashed #e2e7f1;padding-top:14px}
+.pickRow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.pick{
+  border:1px solid #e4e9f2;background:#f7f9fc;color:#34405c;border-radius:13px;
+  min-height:42px;font-weight:950;cursor:pointer;
+}
+.pick.active{background:#ffe8ec;color:#bd1021;border-color:#df1427}
+.scoreRow{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-top:10px}
+.scoreRow input{height:43px;border:1px solid #e3e8f1;border-radius:13px;text-align:center;font-weight:950;font-size:16px;direction:ltr}
+.saveBtn{width:100%;margin-top:10px}
+.locked{opacity:.55;filter:grayscale(.25)}
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 10px;background:#f2f4f8;color:#4a556e;font-weight:900;font-size:12px}
+.badge.red{background:#ffe8ec;color:#c41225}
+.badge.green{background:#e9f8f1;color:#087a43}
+.badge.gold{background:#fff7d7;color:#8a6700}
+.adminGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.adminBox{background:#fff;border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:var(--shadow)}
+.adminBox h3{margin:0 0 10px;font-size:21px}
+.adminBox p{line-height:1.9;color:#667085;margin:0 0 14px}
+.code{direction:ltr;text-align:left;background:#0b1220;color:#e2e8f0;border-radius:16px;padding:14px;overflow:auto;font-size:12px;line-height:1.7}
+.footer{text-align:center;color:#7b8497;margin-top:34px;line-height:2;font-size:13px}
+.modal{display:none;position:fixed;inset:0;z-index:99;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.backdrop{position:absolute;inset:0;background:rgba(3,8,20,.70);backdrop-filter:blur(8px)}
+.modalCard{
+  position:relative;width:min(520px,100%);color:#fff;overflow:hidden;
+  background:linear-gradient(135deg,#071730,#0e2d62);
+  border:1px solid rgba(255,255,255,.18);border-radius:30px;padding:26px;
+  box-shadow:0 28px 90px rgba(0,0,0,.45);
+}
+.modalCard:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(140deg,rgba(255,255,255,.06) 0 2px,transparent 2px 32px),radial-gradient(circle at 10% 10%,rgba(11,163,91,.50),transparent 20rem);pointer-events:none}
+.modalCard>*{position:relative}
+.modalClose{position:absolute;left:16px;top:14px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:25px;cursor:pointer;z-index:2}
+.modalCard h3{margin:10px 0 9px;font-size:25px}
+.modalCard p{color:#dce8fb;line-height:1.9;margin:0 0 16px}
+.modalCard label{display:block;margin:13px 0 7px;font-weight:950}
+.modalCard input{width:100%;height:52px;border-radius:16px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.10);color:#fff;padding:0 15px;font-weight:900;outline:none}
+.modalCard input::placeholder{color:#cbd7ec}
+.toast{position:fixed;right:18px;bottom:18px;z-index:120;background:#071b3a;color:#fff;border-radius:18px;padding:14px 18px;font-weight:950;box-shadow:0 18px 40px rgba(0,0,0,.25);transform:translateY(140px);transition:.25s}
+.toast.show{transform:translateY(0)}
+.mobileCta{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:40}
+@media(max-width:980px){
+  .heroGrid,.scheduleShell,.joinStrip,.adminGrid{grid-template-columns:1fr}
+  .sidePanel{position:relative;top:auto}
+  .fixtureGrid{grid-template-columns:1fr}
+  .rulesGrid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .page{padding:8px 9px 92px}
+  .topbar{border-radius:0 0 18px 18px}
+  .nav a{display:none}
+  .hero{padding:22px 16px;border-radius:25px}
+  .hero p{font-size:14px}
+  .heroActions .btn{width:100%}
+  .statGrid,.rulesGrid{grid-template-columns:1fr}
+  .sectionHead{display:block}
+  .sectionHead h2{font-size:24px}
+  .fixture{padding:14px;border-radius:20px}
+  .flagBubble{width:86px;height:86px}
+  .vs{font-size:25px}
+  .controls select,.controls input{width:100%;min-width:0}
+  .mobileCta{display:block}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="topbar">
+    <a class="brand" href="#">
+      <span class="brandMark">SL</span>
+      <span>SPORTLAND<br><small>WORLD CUP LEAGUE</small></span>
+    </a>
+    <div class="nav">
+      <a href="#rules">قوانین</a>
+      <a href="#schedule">برنامه بازی‌ها</a>
+      <a href="#admin">مدیریت</a>
+      <button onclick="openRegister()">ثبت‌نام</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="heroGrid">
+      <div>
+        <div class="kicker">⚽ لیگ پیش‌بینی مرحله گروهی جام جهانی ۲۰۲۶</div>
+        <h1>پیش‌بینی کن، امتیاز بگیر، <span>بعد از گروهی برنده شو</span></h1>
+        <p>هر شرکت‌کننده با نام و شماره موبایل ثبت‌نام می‌کند، ورودی ۲۰۰٬۰۰۰ تومان می‌پردازد و نتیجه بازی‌های مرحله گروهی را پیش‌بینی می‌کند. بعد از پایان مرحله گروهی، بالاترین مجموع امتیاز برنده جایزه است.</p>
+        <div class="heroActions">
+          <button class="btn red" onclick="openRegister()">ثبت‌نام و شروع پیش‌بینی</button>
+          <a class="btn light" href="#schedule">دیدن برنامه بازی‌ها</a>
+          <a class="btn green" href="#rules">قوانین امتیازدهی</a>
+        </div>
+        <div class="statGrid">
+          <div class="stat"><small>ورودی هر نفر</small><strong>۲۰۰٬۰۰۰ تومان</strong></div>
+          <div class="stat"><small>بازه رقابت</small><strong>فقط مرحله گروهی</strong></div>
+          <div class="stat"><small>معیار برنده</small><strong>بیشترین امتیاز</strong></div>
+        </div>
+      </div>
+      <div class="matchHero" id="nextMatchBox"></div>
+    </div>
+  </header>
+
+  <section class="section" id="rules">
+    <div class="sectionHead">
+      <div>
+        <h2>قوانین ساده، رقابت جذاب</h2>
+        <p>امتیازدهی طوری طراحی شده که هم پیش‌بینی برنده مهم باشد، هم حدس نتیجه دقیق جایزه بیشتری داشته باشد.</p>
+      </div>
+    </div>
+    <div class="rulesGrid">
+      <div class="rule"><b>۵</b><strong>برنده + نتیجه دقیق</strong><span>مثلاً ۲–۱ پیش‌بینی کردی و بازی دقیقاً ۲–۱ تمام شود.</span></div>
+      <div class="rule"><b>۲</b><strong>فقط برنده درست</strong><span>برنده یا مساوی را درست گفتی، اما تعداد گل‌ها دقیق نبوده.</span></div>
+      <div class="rule"><b>۰</b><strong>پیش‌بینی اشتباه</strong><span>برنده یا مساوی را اشتباه انتخاب کردی.</span></div>
+      <div class="rule"><b>🏆</b><strong>برنده نهایی</strong><span>بعد از پایان مرحله گروهی، بالاترین مجموع امتیاز برنده جایزه است.</span></div>
+    </div>
+    <div class="joinStrip">
+      <div class="userBadge" id="userStatus">برای ثبت پیش‌بینی، اول ثبت‌نام کن.</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+        <button class="btn red" onclick="openRegister()">ثبت نام با نام و شماره</button>
+        <button class="btn light" onclick="downloadCSV()">دانلود خروجی پیش‌بینی من</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="sectionHead">
+      <div>
+        <h2>برنامه بازی‌ها و فرم پیش‌بینی</h2>
+        <p>تاریخ و ساعت بازی‌ها به وقت تهران نمایش داده شده‌اند. پیش‌بینی هر بازی بعد از شروع مسابقه قفل می‌شود.</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <select id="groupFilter" onchange="renderFixtures()">
+        <option value="all">همه گروه‌ها</option>
+      </select>
+      <select id="dateFilter" onchange="renderFixtures()">
+        <option value="all">همه تاریخ‌ها</option>
+      </select>
+      <input id="searchBox" oninput="renderFixtures()" placeholder="جستجوی تیم یا شهر...">
+    </div>
+
+    <div class="scheduleShell">
+      <aside class="sidePanel">
+        <h3>خلاصه لیگ</h3>
+        <p>هر نفر فقط با یک شماره موبایل وارد لیگ می‌شود. اگر شماره تکراری ثبت شود، پیش‌بینی‌های جدید روی همان پروفایل ذخیره می‌شوند.</p>
+        <div class="miniScores">
+          <div><span>تعداد بازی‌های گروهی</span><b>۷۲</b></div>
+          <div><span>حداکثر امتیاز ممکن</span><b>۳۶۰</b></div>
+          <div><span>ورودی</span><b>۲۰۰٬۰۰۰ تومان</b></div>
+        </div>
+        <p style="margin-top:14px">برای تساوی، گزینه «مساوی» را انتخاب کن و نتیجه مساوی را در فیلد گل‌ها وارد کن.</p>
+      </aside>
+      <div class="fixtureGrid" id="fixtureGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="admin">
+    <div class="sectionHead">
+      <div>
+        <h2>برای اینکه واقعاً بفهمی چه کسی برده</h2>
+        <p>فرانت‌اند آماده است؛ برای استفاده عمومی باید ثبت‌نام‌ها و پیش‌بینی‌ها به یک دیتابیس یا Google Sheet وصل شوند.</p>
+      </div>
+    </div>
+    <div class="adminGrid">
+      <div class="adminBox">
+        <h3>اتصال به دیتابیس</h3>
+        <p>داخل فایل، مقدار <b>API_ENDPOINT</b> را با آدرس Google Apps Script، Supabase Function یا API خودت پر کن. بعد از هر ثبت‌نام/پیش‌بینی، اطلاعات با POST ارسال می‌شود.</p>
+        <pre class="code">const API_ENDPOINT = "https://...";</pre>
+      </div>
+      <div class="adminBox">
+        <h3>فرمول محاسبه امتیاز</h3>
+        <p>وقتی نتایج واقعی وارد دیتابیس شوند، این منطق برای هر پیش‌بینی اجرا می‌شود و جمع امتیاز هر شماره موبایل رتبه‌بندی نهایی را می‌سازد.</p>
+        <pre class="code">Exact winner/draw + exact score = 5
+Correct winner/draw only = 2
+Wrong prediction = 0</pre>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    زمان‌ها بر اساس برنامه منتشرشده با تایم UK و تبدیل به وقت تهران درج شده‌اند. قبل از انتشار نهایی، یک بار با منبع رسمی برگزارکننده تطبیق بده.
+  </footer>
+</div>
+
+<div class="mobileCta"><button class="btn red" style="width:100%" onclick="openRegister()">ثبت‌نام و پیش‌بینی</button></div>
+
+<div class="modal" id="registerModal" aria-hidden="true">
+  <div class="backdrop" onclick="closeRegister()"></div>
+  <div class="modalCard" role="dialog" aria-modal="true">
+    <button class="modalClose" onclick="closeRegister()" aria-label="بستن">×</button>
+    <h3>ورود به لیگ پیش‌بینی</h3>
+    <p>برای اینکه مشخص باشد چه کسی امتیاز گرفته و برنده شده، نام و شماره موبایل را وارد کن.</p>
+    <label>نام و نام خانوادگی</label>
+    <input id="playerName" placeholder="مثلاً آریا حسینی">
+    <label>شماره موبایل</label>
+    <input id="playerPhone" inputmode="numeric" maxlength="11" placeholder="مثلاً 09123456789" dir="ltr">
+    <button class="btn red" style="width:100%;margin-top:18px" onclick="saveUser()">ثبت اطلاعات و ورود</button>
+    <p style="font-size:12px;margin-top:13px">ثبت‌نام در این نسخه داخل مرورگر ذخیره می‌شود و در صورت تنظیم API_ENDPOINT، همزمان برای پنل مدیریت هم ارسال خواهد شد.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast">ثبت شد</div>
+
+<script>
+const API_ENDPOINT = "https://script.google.com/macros/s/AKfycbze1EBP_CbRaTo3ods9dClayuokbx9QVnhLrlMYOq1yBGTj9ny5FdsIYKatlmuyX-zw/exec";
+const FIXTURES = [{"id":"M01","group":"A","uk":"2026-06-11T20:00:00+01:00","iso":"2026-06-11T22:30:00+03:30","home":"مکزیک","away":"آفریقای جنوبی","homeEn":"Mexico","awayEn":"South Africa","homeFlag":"mx","awayFlag":"za","venue":"مکزیکوسیتی","venueEn":"Mexico City"},{"id":"M02","group":"A","uk":"2026-06-12T03:00:00+01:00","iso":"2026-06-12T05:30:00+03:30","home":"کره جنوبی","away":"جمهوری چک","homeEn":"South Korea","awayEn":"Czech Republic","homeFlag":"kr","awayFlag":"cz","venue":"زاپوپان","venueEn":"Zapopan"},{"id":"M03","group":"B","uk":"2026-06-12T20:00:00+01:00","iso":"2026-06-12T22:30:00+03:30","home":"کانادا","away":"بوسنی و هرزگوین","homeEn":"Canada","awayEn":"Bosnia & Herzegovina","homeFlag":"ca","awayFlag":"ba","venue":"تورنتو","venueEn":"Toronto"},{"id":"M04","group":"D","uk":"2026-06-13T02:00:00+01:00","iso":"2026-06-13T04:30:00+03:30","home":"آمریکا","away":"پاراگوئه","homeEn":"USA","awayEn":"Paraguay","homeFlag":"us","awayFlag":"py","venue":"لس‌آنجلس","venueEn":"Los Angeles"},{"id":"M05","group":"B","uk":"2026-06-13T20:00:00+01:00","iso":"2026-06-13T22:30:00+03:30","home":"قطر","away":"سوئیس","homeEn":"Qatar","awayEn":"Switzerland","homeFlag":"qa","awayFlag":"ch","venue":"سانتا کلارا","venueEn":"Santa Clara"},{"id":"M06","group":"C","uk":"2026-06-13T23:00:00+01:00","iso":"2026-06-14T01:30:00+03:30","home":"برزیل","away":"مراکش","homeEn":"Brazil","awayEn":"Morocco","homeFlag":"br","awayFlag":"ma","venue":"نیویورک/نیوجرسی","venueEn":"New Jersey"},{"id":"M07","group":"C","uk":"2026-06-14T02:00:00+01:00","iso":"2026-06-14T04:30:00+03:30","home":"هائیتی","away":"اسکاتلند","homeEn":"Haiti","awayEn":"Scotland","homeFlag":"ht","awayFlag":"gb-sct","venue":"فاکسبرو","venueEn":"Foxborough"},{"id":"M08","group":"D","uk":"2026-06-14T05:00:00+01:00","iso":"2026-06-14T07:30:00+03:30","home":"استرالیا","away":"ترکیه","homeEn":"Australia","awayEn":"Turkey","homeFlag":"au","awayFlag":"tr","venue":"ونکوور","venueEn":"Vancouver"},{"id":"M09","group":"E","uk":"2026-06-14T18:00:00+01:00","iso":"2026-06-14T20:30:00+03:30","home":"آلمان","away":"کوراسائو","homeEn":"Germany","awayEn":"Curacao","homeFlag":"de","awayFlag":"cw","venue":"هیوستون","venueEn":"Houston"},{"id":"M10","group":"F","uk":"2026-06-14T21:00:00+01:00","iso":"2026-06-14T23:30:00+03:30","home":"هلند","away":"ژاپن","homeEn":"Netherlands","awayEn":"Japan","homeFlag":"nl","awayFlag":"jp","venue":"آرلینگتون","venueEn":"Arlington"},{"id":"M11","group":"E","uk":"2026-06-15T00:00:00+01:00","iso":"2026-06-15T02:30:00+03:30","home":"ساحل عاج","away":"اکوادور","homeEn":"Ivory Coast","awayEn":"Ecuador","homeFlag":"ci","awayFlag":"ec","venue":"فیلادلفیا","venueEn":"Philadelphia"},{"id":"M12","group":"F","uk":"2026-06-15T03:00:00+01:00","iso":"2026-06-15T05:30:00+03:30","home":"سوئد","away":"تونس","homeEn":"Sweden","awayEn":"Tunisia","homeFlag":"se","awayFlag":"tn","venue":"گوادالوپه","venueEn":"Guadalupe"},{"id":"M13","group":"H","uk":"2026-06-15T17:00:00+01:00","iso":"2026-06-15T19:30:00+03:30","home":"اسپانیا","away":"کیپ‌ورد","homeEn":"Spain","awayEn":"Cape Verde","homeFlag":"es","awayFlag":"cv","venue":"آتلانتا","venueEn":"Atlanta"},{"id":"M14","group":"G","uk":"2026-06-15T20:00:00+01:00","iso":"2026-06-15T22:30:00+03:30","home":"بلژیک","away":"مصر","homeEn":"Belgium","awayEn":"Egypt","homeFlag":"be","awayFlag":"eg","venue":"سیاتل","venueEn":"Seattle"},{"id":"M15","group":"H","uk":"2026-06-15T23:00:00+01:00","iso":"2026-06-16T01:30:00+03:30","home":"عربستان","away":"اروگوئه","homeEn":"Saudi Arabia","awayEn":"Uruguay","homeFlag":"sa","awayFlag":"uy","venue":"میامی","venueEn":"Miami"},{"id":"M16","group":"G","uk":"2026-06-16T02:00:00+01:00","iso":"2026-06-16T04:30:00+03:30","home":"ایران","away":"نیوزیلند","homeEn":"Iran","awayEn":"New Zealand","homeFlag":"ir","awayFlag":"nz","venue":"لس‌آنجلس","venueEn":"Los Angeles"},{"id":"M17","group":"I","uk":"2026-06-16T20:00:00+01:00","iso":"2026-06-16T22:30:00+03:30","home":"فرانسه","away":"سنگال","homeEn":"France","awayEn":"Senegal","homeFlag":"fr","awayFlag":"sn","venue":"نیویورک/نیوجرسی","venueEn":"New Jersey"},{"id":"M18","group":"I","uk":"2026-06-16T23:00:00+01:00","iso":"2026-06-17T01:30:00+03:30","home":"عراق","away":"نروژ","homeEn":"Iraq","awayEn":"Norway","homeFlag":"iq","awayFlag":"no","venue":"فاکسبرو","venueEn":"Foxborough"},{"id":"M19","group":"J","uk":"2026-06-17T02:00:00+01:00","iso":"2026-06-17T04:30:00+03:30","home":"آرژانتین","away":"الجزایر","homeEn":"Argentina","awayEn":"Algeria","homeFlag":"ar","awayFlag":"dz","venue":"کانزاس‌سیتی","venueEn":"Kansas City"},{"id":"M20","group":"J","uk":"2026-06-17T05:00:00+01:00","iso":"2026-06-17T07:30:00+03:30","home":"اتریش","away":"اردن","homeEn":"Austria","awayEn":"Jordan","homeFlag":"at","awayFlag":"jo","venue":"سانتا کلارا","venueEn":"Santa Clara"},{"id":"M21","group":"K","uk":"2026-06-17T18:00:00+01:00","iso":"2026-06-17T20:30:00+03:30","home":"پرتغال","away":"کنگو دموکراتیک","homeEn":"Portugal","awayEn":"DR Congo","homeFlag":"pt","awayFlag":"cd","venue":"هیوستون","venueEn":"Houston"},{"id":"M22","group":"L","uk":"2026-06-17T21:00:00+01:00","iso":"2026-06-17T23:30:00+03:30","home":"انگلیس","away":"کرواسی","homeEn":"England","awayEn":"Croatia","homeFlag":"gb-eng","awayFlag":"hr","venue":"آرلینگتون","venueEn":"Arlington"},{"id":"M23","group":"L","uk":"2026-06-18T00:00:00+01:00","iso":"2026-06-18T02:30:00+03:30","home":"غنا","away":"پاناما","homeEn":"Ghana","awayEn":"Panama","homeFlag":"gh","awayFlag":"pa","venue":"تورنتو","venueEn":"Toronto"},{"id":"M24","group":"K","uk":"2026-06-18T03:00:00+01:00","iso":"2026-06-18T05:30:00+03:30","home":"ازبکستان","away":"کلمبیا","homeEn":"Uzbekistan","awayEn":"Colombia","homeFlag":"uz","awayFlag":"co","venue":"مکزیکوسیتی","venueEn":"Mexico City"},{"id":"M25","group":"A","uk":"2026-06-18T17:00:00+01:00","iso":"2026-06-18T19:30:00+03:30","home":"جمهوری چک","away":"آفریقای جنوبی","homeEn":"Czech Republic","awayEn":"South Africa","homeFlag":"cz","awayFlag":"za","venue":"آتلانتا","venueEn":"Atlanta"},{"id":"M26","group":"B","uk":"2026-06-18T20:00:00+01:00","iso":"2026-06-18T22:30:00+03:30","home":"سوئیس","away":"بوسنی و هرزگوین","homeEn":"Switzerland","awayEn":"Bosnia & Herzegovina","homeFlag":"ch","awayFlag":"ba","venue":"لس‌آنجلس","venueEn":"Los Angeles"},{"id":"M27","group":"B","uk":"2026-06-18T23:00:00+01:00","iso":"2026-06-19T01:30:00+03:30","home":"کانادا","away":"قطر","homeEn":"Canada","awayEn":"Qatar","homeFlag":"ca","awayFlag":"qa","venue":"ونکوور","venueEn":"Vancouver"},{"id":"M28","group":"A","uk":"2026-06-19T02:00:00+01:00","iso":"2026-06-19T04:30:00+03:30","home":"مکزیک","away":"کره جنوبی","homeEn":"Mexico","awayEn":"South Korea","homeFlag":"mx","awayFlag":"kr","venue":"زاپوپان","venueEn":"Zapopan"},{"id":"M29","group":"D","uk":"2026-06-19T20:00:00+01:00","iso":"2026-06-19T22:30:00+03:30","home":"آمریکا","away":"استرالیا","homeEn":"USA","awayEn":"Australia","homeFlag":"us","awayFlag":"au","venue":"سیاتل","venueEn":"Seattle"},{"id":"M30","group":"C","uk":"2026-06-19T23:00:00+01:00","iso":"2026-06-20T01:30:00+03:30","home":"اسکاتلند","away":"مراکش","homeEn":"Scotland","awayEn":"Morocco","homeFlag":"gb-sct","awayFlag":"ma","venue":"فاکسبرو","venueEn":"Foxborough"},{"id":"M31","group":"C","uk":"2026-06-20T01:30:00+01:00","iso":"2026-06-20T04:00:00+03:30","home":"برزیل","away":"هائیتی","homeEn":"Brazil","awayEn":"Haiti","homeFlag":"br","awayFlag":"ht","venue":"فیلادلفیا","venueEn":"Philadelphia"},{"id":"M32","group":"D","uk":"2026-06-20T04:00:00+01:00","iso":"2026-06-20T06:30:00+03:30","home":"ترکیه","away":"پاراگوئه","homeEn":"Turkey","awayEn":"Paraguay","homeFlag":"tr","awayFlag":"py","venue":"سانتا کلارا","venueEn":"Santa Clara"},{"id":"M33","group":"F","uk":"2026-06-20T18:00:00+01:00","iso":"2026-06-20T20:30:00+03:30","home":"هلند","away":"سوئد","homeEn":"Netherlands","awayEn":"Sweden","homeFlag":"nl","awayFlag":"se","venue":"هیوستون","venueEn":"Houston"},{"id":"M34","group":"E","uk":"2026-06-20T21:00:00+01:00","iso":"2026-06-20T23:30:00+03:30","home":"آلمان","away":"ساحل عاج","homeEn":"Germany","awayEn":"Ivory Coast","homeFlag":"de","awayFlag":"ci","venue":"تورنتو","venueEn":"Toronto"},{"id":"M35","group":"E","uk":"2026-06-21T01:00:00+01:00","iso":"2026-06-21T03:30:00+03:30","home":"اکوادور","away":"کوراسائو","homeEn":"Ecuador","awayEn":"Curacao","homeFlag":"ec","awayFlag":"cw","venue":"کانزاس‌سیتی","venueEn":"Kansas City"},{"id":"M36","group":"F","uk":"2026-06-21T05:00:00+01:00","iso":"2026-06-21T07:30:00+03:30","home":"تونس","away":"ژاپن","homeEn":"Tunisia","awayEn":"Japan","homeFlag":"tn","awayFlag":"jp","venue":"گوادالوپه","venueEn":"Guadalupe"},{"id":"M37","group":"H","uk":"2026-06-21T17:00:00+01:00","iso":"2026-06-21T19:30:00+03:30","home":"اسپانیا","away":"عربستان","homeEn":"Spain","awayEn":"Saudi Arabia","homeFlag":"es","awayFlag":"sa","venue":"آتلانتا","venueEn":"Atlanta"},{"id":"M38","group":"G","uk":"2026-06-21T20:00:00+01:00","iso":"2026-06-21T22:30:00+03:30","home":"بلژیک","away":"ایران","homeEn":"Belgium","awayEn":"Iran","homeFlag":"be","awayFlag":"ir","venue":"لس‌آنجلس","venueEn":"Los Angeles"},{"id":"M39","group":"H","uk":"2026-06-21T23:00:00+01:00","iso":"2026-06-22T01:30:00+03:30","home":"اروگوئه","away":"کیپ‌ورد","homeEn":"Uruguay","awayEn":"Cape Verde","homeFlag":"uy","awayFlag":"cv","venue":"میامی","venueEn":"Miami"},{"id":"M40","group":"G","uk":"2026-06-22T02:00:00+01:00","iso":"2026-06-22T04:30:00+03:30","home":"نیوزیلند","away":"مصر","homeEn":"New Zealand","awayEn":"Egypt","homeFlag":"nz","awayFlag":"eg","venue":"ونکوور","venueEn":"Vancouver"},{"id":"M41","group":"J","uk":"2026-06-22T18:00:00+01:00","iso":"2026-06-22T20:30:00+03:30","home":"آرژانتین","away":"اتریش","homeEn":"Argentina","awayEn":"Austria","homeFlag":"ar","awayFlag":"at","venue":"آرلینگتون","venueEn":"Arlington"},{"id":"M42","group":"I","uk":"2026-06-22T22:00:00+01:00","iso":"2026-06-23T00:30:00+03:30","home":"فرانسه","away":"عراق","homeEn":"France","awayEn":"Iraq","homeFlag":"fr","awayFlag":"iq","venue":"فیلادلفیا","venueEn":"Philadelphia"},{"id":"M43","group":"I","uk":"2026-06-23T01:00:00+01:00","iso":"2026-06-23T03:30:00+03:30","home":"نروژ","away":"سنگال","homeEn":"Norway","awayEn":"Senegal","homeFlag":"no","awayFlag":"sn","venue":"تورنتو","venueEn":"Toronto"},{"id":"M44","group":"J","uk":"2026-06-23T04:00:00+01:00","iso":"2026-06-23T06:30:00+03:30","home":"اردن","away":"الجزایر","homeEn":"Jordan","awayEn":"Algeria","homeFlag":"jo","awayFlag":"dz","venue":"سانتا کلارا","venueEn":"Santa Clara"},{"id":"M45","group":"K","uk":"2026-06-23T18:00:00+01:00","iso":"2026-06-23T20:30:00+03:30","home":"پرتغال","away":"ازبکستان","homeEn":"Portugal","awayEn":"Uzbekistan","homeFlag":"pt","awayFlag":"uz","venue":"هیوستون","venueEn":"Houston"},{"id":"M46","group":"L","uk":"2026-06-23T21:00:00+01:00","iso":"2026-06-23T23:30:00+03:30","home":"انگلیس","away":"غنا","homeEn":"England","awayEn":"Ghana","homeFlag":"gb-eng","awayFlag":"gh","venue":"فاکسبرو","venueEn":"Foxborough"},{"id":"M47","group":"L","uk":"2026-06-24T00:00:00+01:00","iso":"2026-06-24T02:30:00+03:30","home":"پاناما","away":"کرواسی","homeEn":"Panama","awayEn":"Croatia","homeFlag":"pa","awayFlag":"hr","venue":"فاکسبرو","venueEn":"Foxborough"},{"id":"M48","group":"K","uk":"2026-06-24T03:00:00+01:00","iso":"2026-06-24T05:30:00+03:30","home":"کلمبیا","away":"کنگو دموکراتیک","homeEn":"Colombia","awayEn":"DR Congo","homeFlag":"co","awayFlag":"cd","venue":"زاپوپان","venueEn":"Zapopan"},{"id":"M49","group":"B","uk":"2026-06-24T20:00:00+01:00","iso":"2026-06-24T22:30:00+03:30","home":"سوئیس","away":"کانادا","homeEn":"Switzerland","awayEn":"Canada","homeFlag":"ch","awayFlag":"ca","venue":"ونکوور","venueEn":"Vancouver"},{"id":"M50","group":"B","uk":"2026-06-24T20:00:00+01:00","iso":"2026-06-24T22:30:00+03:30","home":"بوسنی و هرزگوین","away":"قطر","homeEn":"Bosnia & Herzegovina","awayEn":"Qatar","homeFlag":"ba","awayFlag":"qa","venue":"سیاتل","venueEn":"Seattle"},{"id":"M51","group":"C","uk":"2026-06-24T23:00:00+01:00","iso":"2026-06-25T01:30:00+03:30","home":"مراکش","away":"هائیتی","homeEn":"Morocco","awayEn":"Haiti","homeFlag":"ma","awayFlag":"ht","venue":"آتلانتا","venueEn":"Atlanta"},{"id":"M52","group":"C","uk":"2026-06-24T23:00:00+01:00","iso":"2026-06-25T01:30:00+03:30","home":"اسکاتلند","away":"برزیل","homeEn":"Scotland","awayEn":"Brazil","homeFlag":"gb-sct","awayFlag":"br","venue":"میامی","venueEn":"Miami"},{"id":"M53","group":"A","uk":"2026-06-25T02:00:00+01:00","iso":"2026-06-25T04:30:00+03:30","home":"آفریقای جنوبی","away":"کره جنوبی","homeEn":"South Africa","awayEn":"South Korea","homeFlag":"za","awayFlag":"kr","venue":"گوادالوپه","venueEn":"Guadalupe"},{"id":"M54","group":"A","uk":"2026-06-25T02:00:00+01:00","iso":"2026-06-25T04:30:00+03:30","home":"جمهوری چک","away":"مکزیک","homeEn":"Czech Republic","awayEn":"Mexico","homeFlag":"cz","awayFlag":"mx","venue":"مکزیکوسیتی","venueEn":"Mexico City"},{"id":"M55","group":"E","uk":"2026-06-25T21:00:00+01:00","iso":"2026-06-25T23:30:00+03:30","home":"کوراسائو","away":"ساحل عاج","homeEn":"Curacao","awayEn":"Ivory Coast","homeFlag":"cw","awayFlag":"ci","venue":"فیلادلفیا","venueEn":"Philadelphia"},{"id":"M56","group":"E","uk":"2026-06-25T21:00:00+01:00","iso":"2026-06-25T23:30:00+03:30","home":"اکوادور","away":"آلمان","homeEn":"Ecuador","awayEn":"Germany","homeFlag":"ec","awayFlag":"de","venue":"نیویورک/نیوجرسی","venueEn":"New Jersey"},{"id":"M57","group":"F","uk":"2026-06-26T00:00:00+01:00","iso":"2026-06-26T02:30:00+03:30","home":"تونس","away":"هلند","homeEn":"Tunisia","awayEn":"Netherlands","homeFlag":"tn","awayFlag":"nl","venue":"کانزاس‌سیتی","venueEn":"Kansas City"},{"id":"M58","group":"F","uk":"2026-06-26T00:00:00+01:00","iso":"2026-06-26T02:30:00+03:30","home":"ژاپن","away":"سوئد","homeEn":"Japan","awayEn":"Sweden","homeFlag":"jp","awayFlag":"se","venue":"آرلینگتون","venueEn":"Arlington"},{"id":"M59","group":"D","uk":"2026-06-26T03:00:00+01:00","iso":"2026-06-26T05:30:00+03:30","home":"ترکیه","away":"آمریکا","homeEn":"Turkey","awayEn":"USA","homeFlag":"tr","awayFlag":"us","venue":"لس‌آنجلس","venueEn":"Los Angeles"},{"id":"M60","group":"D","uk":"2026-06-26T03:00:00+01:00","iso":"2026-06-26T05:30:00+03:30","home":"پاراگوئه","away":"استرالیا","homeEn":"Paraguay","awayEn":"Australia","homeFlag":"py","awayFlag":"au","venue":"سانتا کلارا","venueEn":"Santa Clara"},{"id":"M61","group":"I","uk":"2026-06-26T20:00:00+01:00","iso":"2026-06-26T22:30:00+03:30","home":"نروژ","away":"فرانسه","homeEn":"Norway","awayEn":"France","homeFlag":"no","awayFlag":"fr","venue":"فاکسبرو","venueEn":"Foxborough"},{"id":"M62","group":"I","uk":"2026-06-26T20:00:00+01:00","iso":"2026-06-26T22:30:00+03:30","home":"سنگال","away":"عراق","homeEn":"Senegal","awayEn":"Iraq","homeFlag":"sn","awayFlag":"iq","venue":"تورنتو","venueEn":"Toronto"},{"id":"M63","group":"H","uk":"2026-06-27T01:00:00+01:00","iso":"2026-06-27T03:30:00+03:30","home":"کیپ‌ورد","away":"عربستان","homeEn":"Cape Verde","awayEn":"Saudi Arabia","homeFlag":"cv","awayFlag":"sa","venue":"هیوستون","venueEn":"Houston"},{"id":"M64","group":"H","uk":"2026-06-27T01:00:00+01:00","iso":"2026-06-27T03:30:00+03:30","home":"اروگوئه","away":"اسپانیا","homeEn":"Uruguay","awayEn":"Spain","homeFlag":"uy","awayFlag":"es","venue":"زاپوپان","venueEn":"Zapopan"},{"id":"M65","group":"G","uk":"2026-06-27T04:00:00+01:00","iso":"2026-06-27T06:30:00+03:30","home":"نیوزیلند","away":"بلژیک","homeEn":"New Zealand","awayEn":"Belgium","homeFlag":"nz","awayFlag":"be","venue":"ونکوور","venueEn":"Vancouver"},{"id":"M66","group":"G","uk":"2026-06-27T04:00:00+01:00","iso":"2026-06-27T06:30:00+03:30","home":"مصر","away":"ایران","homeEn":"Egypt","awayEn":"Iran","homeFlag":"eg","awayFlag":"ir","venue":"سیاتل","venueEn":"Seattle"},{"id":"M67","group":"L","uk":"2026-06-27T22:00:00+01:00","iso":"2026-06-28T00:30:00+03:30","home":"پاناما","away":"انگلیس","homeEn":"Panama","awayEn":"England","homeFlag":"pa","awayFlag":"gb-eng","venue":"نیویورک/نیوجرسی","venueEn":"New Jersey"},{"id":"M68","group":"L","uk":"2026-06-27T22:00:00+01:00","iso":"2026-06-28T00:30:00+03:30","home":"کرواسی","away":"غنا","homeEn":"Croatia","awayEn":"Ghana","homeFlag":"hr","awayFlag":"gh","venue":"فیلادلفیا","venueEn":"Philadelphia"},{"id":"M69","group":"K","uk":"2026-06-28T00:30:00+01:00","iso":"2026-06-28T03:00:00+03:30","home":"کلمبیا","away":"پرتغال","homeEn":"Colombia","awayEn":"Portugal","homeFlag":"co","awayFlag":"pt","venue":"میامی","venueEn":"Miami"},{"id":"M70","group":"K","uk":"2026-06-28T00:30:00+01:00","iso":"2026-06-28T03:00:00+03:30","home":"کنگو دموکراتیک","away":"ازبکستان","homeEn":"DR Congo","awayEn":"Uzbekistan","homeFlag":"cd","awayFlag":"uz","venue":"آتلانتا","venueEn":"Atlanta"},{"id":"M71","group":"J","uk":"2026-06-28T03:00:00+01:00","iso":"2026-06-28T05:30:00+03:30","home":"الجزایر","away":"اتریش","homeEn":"Algeria","awayEn":"Austria","homeFlag":"dz","awayFlag":"at","venue":"کانزاس‌سیتی","venueEn":"Kansas City"},{"id":"M72","group":"J","uk":"2026-06-28T03:00:00+01:00","iso":"2026-06-28T05:30:00+03:30","home":"اردن","away":"آرژانتین","homeEn":"Jordan","awayEn":"Argentina","homeFlag":"jo","awayFlag":"ar","venue":"آرلینگتون","venueEn":"Arlington"}];
+const nf = new Intl.NumberFormat('fa-IR');
+const dateFmt = new Intl.DateTimeFormat('fa-IR-u-ca-persian', {weekday:'short', day:'numeric', month:'long', hour:'2-digit', minute:'2-digit', timeZone:'Asia/Tehran'});
+const dayFmt = new Intl.DateTimeFormat('fa-IR-u-ca-persian', {weekday:'short', day:'numeric', month:'long', timeZone:'Asia/Tehran'});
+const timeFmt = new Intl.DateTimeFormat('fa-IR', {hour:'2-digit', minute:'2-digit', timeZone:'Asia/Tehran'});
+const USER_KEY = 'wc26_sl_user_v1';
+const PRED_KEY = 'wc26_sl_predictions_v1';
+
+function flagUrl(code){ return `https://flagcdn.com/${code}.svg`; }
+function getUser(){ try{ return JSON.parse(localStorage.getItem(USER_KEY)||'null'); }catch(e){return null} }
+function getPreds(){ try{ return JSON.parse(localStorage.getItem(PRED_KEY)||'{}'); }catch(e){return {}} }
+function setPreds(p){ localStorage.setItem(PRED_KEY, JSON.stringify(p)); }
+function toast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2400); }
+function openRegister(){ document.getElementById('registerModal').classList.add('show'); document.getElementById('registerModal').setAttribute('aria-hidden','false'); }
+function closeRegister(){ document.getElementById('registerModal').classList.remove('show'); document.getElementById('registerModal').setAttribute('aria-hidden','true'); }
+function normalizePhone(v){ return (v||'').replace(/\D/g,'').slice(0,11); }
+
+async function sendEvent(type, payload){
+  if(!API_ENDPOINT) return;
+  try{
+    await fetch(API_ENDPOINT, {
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({type, payload, sentAt:new Date().toISOString()})
+    });
+  }catch(e){ console.warn('API send failed', e); }
+}
+
+function saveUser(){
+  const name = document.getElementById('playerName').value.trim();
+  const phone = normalizePhone(document.getElementById('playerPhone').value);
+  if(name.length < 2) return toast('نام را کامل وارد کن.');
+  if(!/^09\d{9}$/.test(phone)) return toast('شماره موبایل معتبر وارد کن.');
+  const user = {name, phone, joinedAt:new Date().toISOString(), entryFee:200000};
+  localStorage.setItem(USER_KEY, JSON.stringify(user));
+  closeRegister();
+  updateUser();
+  renderFixtures();
+  sendEvent('register', user);
+  toast('ثبت‌نام انجام شد. حالا می‌تونی پیش‌بینی کنی.');
+}
+
+function updateUser(){
+  const user = getUser();
+  const box = document.getElementById('userStatus');
+  if(user){
+    box.innerHTML = `✅ ثبت‌نام شده: <b>${user.name}</b> / <span dir="ltr">${user.phone}</span>`;
+  } else {
+    box.textContent = 'برای ثبت پیش‌بینی، اول ثبت‌نام کن.';
+  }
+}
+
+function setupFilters(){
+  const groups = [...new Set(FIXTURES.map(f=>f.group))].sort();
+  const gf = document.getElementById('groupFilter');
+  groups.forEach(g=> {
+    const opt=document.createElement('option'); opt.value=g; opt.textContent='گروه '+g; gf.appendChild(opt);
+  });
+  const dates = [...new Set(FIXTURES.map(f=>new Date(f.iso).toISOString().slice(0,10)))];
+  const df = document.getElementById('dateFilter');
+  dates.forEach(d=> {
+    const sample = FIXTURES.find(f=>new Date(f.iso).toISOString().slice(0,10)===d);
+    const opt=document.createElement('option'); opt.value=d; opt.textContent=dayFmt.format(new Date(sample.iso)); df.appendChild(opt);
+  });
+}
+
+function renderNextMatch(){
+  const now = new Date();
+  const next = FIXTURES.find(f => new Date(f.iso) > now) || FIXTURES[0];
+  const box = document.getElementById('nextMatchBox');
+  box.innerHTML = `
+    <span class="tag">بازی بعدی</span>
+    <div class="versus">
+      <div>
+        <div class="flagBubble"><img src="${flagUrl(next.homeFlag)}" alt="${next.home}"></div>
+        <span class="teamName">${next.home}</span>
+      </div>
+      <div class="vs">VS</div>
+      <div>
+        <div class="flagBubble"><img src="${flagUrl(next.awayFlag)}" alt="${next.away}"></div>
+        <span class="teamName">${next.away}</span>
+      </div>
+    </div>
+    <div class="nextMeta">
+      <div>گروه ${next.group}</div>
+      <div>${dateFmt.format(new Date(next.iso))}</div>
+      <div>${next.venue}</div>
+      <div>وقت تهران</div>
+    </div>`;
+}
+
+function renderFixtures(){
+  const grid = document.getElementById('fixtureGrid');
+  const group = document.getElementById('groupFilter').value;
+  const date = document.getElementById('dateFilter').value;
+  const q = (document.getElementById('searchBox').value||'').trim().toLowerCase();
+  const user = getUser();
+  const preds = getPreds();
+  let list = FIXTURES.filter(f => {
+    const localDate = new Date(f.iso).toISOString().slice(0,10);
+    const hay = `${f.home} ${f.away} ${f.venue} ${f.group}`.toLowerCase();
+    return (group==='all'||f.group===group) && (date==='all'||localDate===date) && (!q||hay.includes(q));
+  });
+  if(!list.length){ grid.innerHTML = '<div class="card">چیزی با این فیلتر پیدا نشد.</div>'; return; }
+  grid.innerHTML = list.map(f => fixtureHTML(f, user, preds[f.id])).join('');
+}
+
+function fixtureHTML(f, user, pred){
+  const start = new Date(f.iso);
+  const locked = new Date() >= start;
+  const disabled = !user || locked;
+  const pick = pred?.pick || '';
+  const hg = pred?.homeGoals ?? '';
+  const ag = pred?.awayGoals ?? '';
+  const buttonText = !user ? 'اول ثبت‌نام کن' : locked ? 'قفل شده' : pred ? 'ویرایش پیش‌بینی' : 'ثبت پیش‌بینی';
+  const lockBadge = locked ? '<span class="badge red">شروع شده</span>' : '<span class="badge green">قابل پیش‌بینی</span>';
+  return `
+  <article class="fixture ${disabled?'locked':''}" data-id="${f.id}">
+    <div class="fixtureTop">
+      <span class="badge gold">گروه ${f.group}</span>
+      ${lockBadge}
+    </div>
+    <div class="fixtureTeams">
+      <div>
+        <img class="flag" src="${flagUrl(f.homeFlag)}" alt="${f.home}">
+        <div class="team">${f.home}</div>
+      </div>
+      <b>VS</b>
+      <div>
+        <img class="flag" src="${flagUrl(f.awayFlag)}" alt="${f.away}">
+        <div class="team">${f.away}</div>
+      </div>
+    </div>
+    <div class="fixtureTop" style="margin:14px 0 0">
+      <span>${dateFmt.format(start)}</span>
+      <span>${f.venue}</span>
+    </div>
+    <div class="predictionBox">
+      <div class="pickRow">
+        <button class="pick ${pick==='H'?'active':''}" ${disabled?'disabled':''} onclick="choosePick('${f.id}','H')">${f.home}</button>
+        <button class="pick ${pick==='D'?'active':''}" ${disabled?'disabled':''} onclick="choosePick('${f.id}','D')">مساوی</button>
+        <button class="pick ${pick==='A'?'active':''}" ${disabled?'disabled':''} onclick="choosePick('${f.id}','A')">${f.away}</button>
+      </div>
+      <div class="scoreRow">
+        <input id="${f.id}_hg" type="number" min="0" max="20" value="${hg}" placeholder="گل" ${disabled?'disabled':''}>
+        <b>نتیجه</b>
+        <input id="${f.id}_ag" type="number" min="0" max="20" value="${ag}" placeholder="گل" ${disabled?'disabled':''}>
+      </div>
+      <button class="btn red saveBtn" ${disabled?'disabled':''} onclick="savePrediction('${f.id}')">${buttonText}</button>
+    </div>
+  </article>`;
+}
+
+function choosePick(id, pick){
+  const user = getUser();
+  if(!user) return openRegister();
+  const card = document.querySelector(`.fixture[data-id="${id}"]`);
+  card.dataset.pick = pick;
+  card.querySelectorAll('.pick').forEach(b=>b.classList.remove('active'));
+  const idx = pick==='H'?0:pick==='D'?1:2;
+  card.querySelectorAll('.pick')[idx].classList.add('active');
+}
+
+function savePrediction(id){
+  const user = getUser();
+  if(!user) return openRegister();
+  const f = FIXTURES.find(x=>x.id===id);
+  if(new Date() >= new Date(f.iso)) return toast('زمان پیش‌بینی این بازی تمام شده.');
+  const card = document.querySelector(`.fixture[data-id="${id}"]`);
+  const current = getPreds()[id];
+  const pick = card.dataset.pick || current?.pick;
+  if(!pick) return toast('برنده یا مساوی را انتخاب کن.');
+  const hg = document.getElementById(id+'_hg').value;
+  const ag = document.getElementById(id+'_ag').value;
+  if(hg==='' || ag==='') return toast('نتیجه دقیق را هم وارد کن.');
+  const hgn = Number(hg), agn = Number(ag);
+  if(hgn<0 || agn<0 || hgn>20 || agn>20) return toast('تعداد گل معتبر وارد کن.');
+  if(pick==='H' && hgn<=agn) return toast('برای برد تیم اول، گل تیم اول باید بیشتر باشد.');
+  if(pick==='A' && agn<=hgn) return toast('برای برد تیم دوم، گل تیم دوم باید بیشتر باشد.');
+  if(pick==='D' && hgn!==agn) return toast('برای مساوی، گل‌های دو تیم باید برابر باشد.');
+  const preds = getPreds();
+  preds[id] = {
+    fixtureId:id, group:f.group, home:f.home, away:f.away, pick,
+    homeGoals:hgn, awayGoals:agn, submittedAt:new Date().toISOString(),
+    playerName:user.name, playerPhone:user.phone
+  };
+  setPreds(preds);
+  sendEvent('prediction', preds[id]);
+  renderFixtures();
+  toast('پیش‌بینی ثبت شد.');
+}
+
+function downloadCSV(){
+  const user = getUser();
+  const preds = Object.values(getPreds());
+  if(!user) return toast('اول ثبت‌نام کن.');
+  if(!preds.length) return toast('هنوز پیش‌بینی ثبت نکردی.');
+  const header = ['name','phone','fixtureId','group','home','away','pick','homeGoals','awayGoals','submittedAt'];
+  const rows = preds.map(p => [user.name,user.phone,p.fixtureId,p.group,p.home,p.away,p.pick,p.homeGoals,p.awayGoals,p.submittedAt]);
+  const csv = [header, ...rows].map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `worldcup_predictions_${user.phone}.csv`;
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+}
+
+function scorePrediction(pred, result){
+  const predOutcome = pred.homeGoals > pred.awayGoals ? 'H' : pred.homeGoals < pred.awayGoals ? 'A' : 'D';
+  const realOutcome = result.homeGoals > result.awayGoals ? 'H' : result.homeGoals < result.awayGoals ? 'A' : 'D';
+  if(predOutcome !== pred.pick) return 0;
+  if(predOutcome !== realOutcome) return 0;
+  if(pred.homeGoals === result.homeGoals && pred.awayGoals === result.awayGoals) return 5;
+  return 2;
+}
+
+setupFilters();
+updateUser();
+renderNextMatch();
+renderFixtures();
+</script>
+</body>
+</html>
